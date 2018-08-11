@@ -1,4 +1,12 @@
-<!doctype html>
+<?php
+session_start();
+
+if (!isset($_SESSION['USER_ID']) && !isset($_SESSION['IS_LOGGED_IN'])) {
+  header("Location: login.php");
+}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -22,7 +30,7 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <a class="nav-link" href="logout.php">Logout</a>
         </li>
       </ul>
     </nav>
@@ -277,21 +285,21 @@
         data: {
           labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
+              data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+              lineTension: 0,
+              backgroundColor: 'transparent',
+              borderColor: '#007bff',
+              borderWidth: 4,
+              pointBackgroundColor: '#007bff'
+            }]
         },
         options: {
           scales: {
             yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
+                ticks: {
+                  beginAtZero: false
+                }
+              }]
           },
           legend: {
             display: false,
