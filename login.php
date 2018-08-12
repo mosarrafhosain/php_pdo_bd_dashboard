@@ -26,7 +26,7 @@ if (isset($_POST['LOGIN'])) {
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/bs/css/bootstrap.min.css" rel="stylesheet">

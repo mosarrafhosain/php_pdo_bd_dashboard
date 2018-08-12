@@ -12,7 +12,7 @@ $user->is_not_logged_in_redirect();
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/bs/css/bootstrap.min.css" rel="stylesheet">
@@ -23,11 +23,11 @@ $user->is_not_logged_in_redirect();
 
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?php echo base_url("index.php"); ?>">Company name</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link" href="<?php echo base_url("logout.php"); ?>">Logout</a>
         </li>
       </ul>
     </nav>
@@ -38,7 +38,7 @@ $user->is_not_logged_in_redirect();
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="<?php echo base_url("index.php"); ?>">
                   <span data-feather="home"></span>
                   Dashboard <span class="sr-only">(current)</span>
                 </a>
