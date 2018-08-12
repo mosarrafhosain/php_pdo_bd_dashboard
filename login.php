@@ -1,13 +1,19 @@
 <?php
-session_start();
+require_once __DIR__ . '/lib/Login.php';
+
+$login = new Login();
+$login->is_logged_in_redirect();
+
+$msg = "";
 
 if (isset($_POST['LOGIN'])) {
-  $_SESSION['USER_ID'] = 1;
-  $_SESSION['IS_LOGGED_IN'] = TRUE;
-}
-
-if (isset($_SESSION['USER_ID']) && isset($_SESSION['IS_LOGGED_IN'])) {
-  header("Location: index.php");
+  $username = trim($_POST['USERNAME']);
+  $password = trim($_POST['PASSWORD']);
+  if ($login->login($username, $password)) {
+    header("Location: index.php");
+  } else {
+    $msg = "Invalid username or password.";
+  }
 }
 ?>
 
@@ -31,19 +37,26 @@ if (isset($_SESSION['USER_ID']) && isset($_SESSION['IS_LOGGED_IN'])) {
 
   <body class="text-center">
     <form class="form-signin" action="" method="post">
+      <?php
+      if (!empty($msg)) {
+        ?>
+        <div class="alert alert-danger"><?php echo $msg; ?></div>
+        <?php
+      }
+      ?>
       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="username" class="sr-only">Username or email address</label>
+      <input type="text" name="USERNAME" id="username" class="form-control" value="<?php echo isset($_POST['USERNAME']) ? $_POST['USERNAME'] : ''; ?>" placeholder="Username or email address" required autofocus>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" name="PASSWORD" id="password" class="form-control" value="<?php echo isset($_POST['PASSWORD']) ? $_POST['PASSWORD'] : ''; ?>" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="LOGIN">Login</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">&copy; <?php echo date('Y') - 1; ?>-<?php echo date('Y'); ?></p>
     </form>
   </body>
 </html>

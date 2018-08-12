@@ -1,9 +1,6 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['USER_ID']) && !isset($_SESSION['IS_LOGGED_IN'])) {
-  header("Location: login.php");
-}
+require_once __DIR__ . '/inc/include.php';
+$user->is_not_logged_in_redirect();
 ?>
 
 <!DOCTYPE html>
