@@ -25,10 +25,10 @@ if (isset($_POST['LOGIN'])) {
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/bs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/bs/css/bootstrap.min.css"); ?>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/login.css"); ?>" rel="stylesheet">
   </head>
 
   <body class="text-center">
@@ -52,6 +52,7 @@ if (isset($_POST['LOGIN'])) {
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="LOGIN">Login</button>
+      <a href="<?php echo base_url("index.php?page=forgot_password"); ?>">Forgot password</a>
       <p class="mt-5 mb-3 text-muted">&copy; <?php echo date('Y') - 1; ?>-<?php echo date('Y'); ?></p>
     </form>
   </body>
