@@ -2,21 +2,36 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50723
-Source Host           : localhost:3306
+Source Server Version : 50505
+Source Host           : 127.0.0.1:3306
 Source Database       : php_pdo_bs_dashboard
 
 Target Server Type    : MYSQL
-Target Server Version : 50723
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-08-13 02:36:46
+Date: 2018-08-13 15:43:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for USERS
+-- Table structure for login_attempts
+-- ----------------------------
+DROP TABLE IF EXISTS `LOGIN_ATTEMPTS`;
+CREATE TABLE `LOGIN_ATTEMPTS` (
+  `USERNAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IP` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ATTEMPTS` tinyint(1) DEFAULT NULL,
+  `LAST_LOGIN` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of login_attempts
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `USERS`;
 CREATE TABLE `USERS` (
@@ -31,10 +46,13 @@ CREATE TABLE `USERS` (
   `UPDATED_BY` int(10) DEFAULT NULL,
   `UPDATED_AT` timestamp NULL DEFAULT NULL,
   `STATUS` tinyint(1) DEFAULT '1' COMMENT '0 = Inactive, 1 = Active',
+  `USER_TOKEN` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PASSWORD_RESET_TOKEN` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PASSWORD_RESET_DATE` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
--- Records of USERS
+-- Records of users
 -- ----------------------------
-INSERT INTO `USERS` VALUES ('1', 'Mosarraf Hosain', 'mosarraf@gmail.com', 'mosarraf', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, '1', '2018-08-13 02:08:30', null, null, '1');
+INSERT INTO `users` VALUES ('1', 'Mosarraf Hosain', 'mosarraf@gmail.com', 'mosarraf', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, '1', '2018-08-13 02:08:30', null, null, '1', null, null, null);

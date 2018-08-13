@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/lib/Login.php';
+require_once __DIR__ . '/../lib/Login.php';
 
 $login = new Login();
 $login->is_logged_in_redirect();
@@ -9,11 +9,7 @@ $msg = "";
 if (isset($_POST['LOGIN'])) {
   $username = trim($_POST['USERNAME']);
   $password = trim($_POST['PASSWORD']);
-  if ($login->login($username, $password)) {
-    header("Location: index.php");
-  } else {
-    $msg = "Invalid username or password.";
-  }
+  $msg = $login->login($username, $password);
 }
 ?>
 

@@ -22,7 +22,7 @@ class User extends Config
   public function is_not_logged_in_redirect()
   {
     if (!$this->is_logged_in()) {
-      header("Location: login.php");
+      redirect(base_url("index.php?page=login"));
     }
   }
 

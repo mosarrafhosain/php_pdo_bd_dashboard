@@ -12,6 +12,7 @@ class Login extends Config
 
   public function login($username, $password)
   {
+    $msg = "";
     try {
       $query = $this->conn->prepare("SELECT * FROM USERS WHERE (USERNAME = :USERNAME OR EMAIL = :USERNAME) AND PASSWORD = :PASSWORD");
       $query->bindParam("USERNAME", $username, PDO::PARAM_STR);
@@ -21,13 +22,15 @@ class Login extends Config
         $result = $query->fetch(PDO::FETCH_OBJ);
         $_SESSION['USER_ID'] = $result->ID;
         $_SESSION['IS_LOGGED_IN'] = TRUE;
-        return TRUE;
+        $_SESSION['USER_TOKEN'] = '';
+        redirect(base_url());
       } else {
-        return FALSE;
+        $msg = "Invalid username or password.";
       }
     } catch (PDOException $e) {
       exit($e->getMessage());
     }
+    return $msg;
   }
 
   public function is_logged_in()
@@ -42,7 +45,7 @@ class Login extends Config
   public function is_logged_in_redirect()
   {
     if ($this->is_logged_in()) {
-      header('Location: index.php');
+      redirect(base_url());
     }
   }
 
@@ -50,7 +53,7 @@ class Login extends Config
   {
     session_unset();
     session_destroy();
-    header("Location: login.php");
+    redirect(base_url("index.php?page=login"));
   }
 
 }
