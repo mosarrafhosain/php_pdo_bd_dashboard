@@ -1,4 +1,5 @@
-Profile edit
+Edit profile
+Change password
 Invalid login attempt to be blocked
 Multiple Login not Allowed at a same time
 Password Reset & Forgot Password

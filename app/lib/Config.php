@@ -12,7 +12,7 @@ class Config
   private $password = "root";
   //private $password = "";
   private $dbname = "php_pdo_bs_dashboard";
-  protected $conn;
+  public $conn;
 
   public function __construct()
   {

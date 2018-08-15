@@ -22,7 +22,11 @@ class User extends Config
   public function is_not_logged_in_redirect()
   {
     if (!$this->is_logged_in()) {
-      redirect(base_url("index.php?page=login"));
+      $redir = '';
+      if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $redir = "&redir={$_GET['page']}";
+      }
+      redirect(base_url("index.php?page=login$redir"));
     }
   }
 

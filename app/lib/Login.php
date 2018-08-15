@@ -12,8 +12,8 @@ class Login extends Config
 
   public function login($username, $password)
   {
-    $msg = "";
     try {
+      $msg = "";
       $query = $this->conn->prepare("SELECT * FROM USERS WHERE (USERNAME = :USERNAME OR EMAIL = :USERNAME) AND PASSWORD = :PASSWORD");
       $query->bindParam("USERNAME", $username, PDO::PARAM_STR);
       $query->bindParam("PASSWORD", sha1($password), PDO::PARAM_STR);
@@ -23,14 +23,20 @@ class Login extends Config
         $_SESSION['USER_ID'] = $result->ID;
         $_SESSION['IS_LOGGED_IN'] = TRUE;
         $_SESSION['USER_TOKEN'] = '';
-        redirect(base_url());
+
+        // Redirect requested page
+        $redir = '';
+        if (isset($_GET['redir']) && !empty($_GET['redir'])) {
+          $redir = "index.php?page={$_GET['redir']}";
+        }
+        redirect(base_url($redir));
       } else {
         $msg = "Invalid username or password.";
       }
+      return $msg;
     } catch (PDOException $e) {
       exit($e->getMessage());
     }
-    return $msg;
   }
 
   public function is_logged_in()
