@@ -1,7 +1,8 @@
-Edit profile
-Change password
 Invalid login attempt to be blocked
 Multiple Login not Allowed at a same time
 Password Reset & Forgot Password
 Password Expire & force to change the password
 Password Complexity
+
+Edit profile
+Change password
