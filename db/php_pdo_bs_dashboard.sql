@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-08-13 15:43:21
+Date: 2018-08-16 13:53:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -18,8 +18,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for login_attempts
 -- ----------------------------
-DROP TABLE IF EXISTS `LOGIN_ATTEMPTS`;
-CREATE TABLE `LOGIN_ATTEMPTS` (
+DROP TABLE IF EXISTS `login_attempts`;
+CREATE TABLE `login_attempts` (
   `USERNAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IP` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ATTEMPTS` tinyint(1) DEFAULT NULL,
@@ -33,8 +33,8 @@ CREATE TABLE `LOGIN_ATTEMPTS` (
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `USERS`;
-CREATE TABLE `USERS` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `EMAIL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
