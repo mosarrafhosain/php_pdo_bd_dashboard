@@ -16,6 +16,8 @@ $user->is_not_logged_in_redirect();
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url("assets/bs/css/bootstrap.min.css"); ?>" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url("assets/css/dashboard.css"); ?>" rel="stylesheet">

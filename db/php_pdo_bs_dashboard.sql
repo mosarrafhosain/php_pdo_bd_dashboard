@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-08-16 13:53:15
+Date: 2018-08-16 15:24:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,9 +50,10 @@ CREATE TABLE `users` (
   `PASSWORD_RESET_TOKEN` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PASSWORD_RESET_DATE` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', 'Mosarraf Hosain', 'mosarraf@gmail.com', 'mosarraf', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, '1', '2018-08-13 02:08:30', null, null, '1', null, null, null);
+INSERT INTO `users` VALUES ('2', 'Delowar Hossain', 'delowar@gmail.com', 'delowar', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, '1', '2018-08-16 14:59:32', null, null, '1', null, null, null);

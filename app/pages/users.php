@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-12">
           <button id="add_user" class="btn btn-success"><i class="fa fa-plus"></i> Add User</button>
-          <button id="reload" class="btn btn-default"><i class="fa fa-refresh"></i> Reload</button>
+          <button id="reload" class="btn btn-default"><i class="fa fa-sync"></i> Reload</button>
           <br>
           <br>
           <div class="table-responsive">
@@ -47,7 +47,7 @@
                       <td><?php echo $val->USERNAME; ?></td>
                       <td><?php echo $val->STATUS == 1 ? 'Active' : 'Inactive'; ?></td>
                       <td>                        
-                        <a class="btn btn-sm btn-primary" href="javascript:void(0)" user_id="<?php echo $val->ID; ?>"><i class="fa fa-pencil"></i> Edit</a>
+                        <a class="btn btn-sm btn-primary" href="javascript:void(0)" user_id="<?php echo $val->ID; ?>"><i class="fa fa-edit"></i> Edit</a>
                         <a class="btn btn-sm btn-danger" href="javascript:void(0)" user_id="<?php echo $val->ID; ?>"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>

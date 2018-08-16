@@ -9,8 +9,8 @@ class Config
 
   private $host = "localhost";
   private $username = "root";
-  private $password = "root";
-  //private $password = "";
+  //private $password = "root";
+  private $password = "";
   private $dbname = "php_pdo_bs_dashboard";
   public $conn;
 
