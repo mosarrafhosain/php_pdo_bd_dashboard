@@ -15,7 +15,7 @@ $user->is_not_logged_in_redirect();
     <title><?php echo $title; ?> :: Module Name</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url("assets/bs/css/bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/bootstrap/css/bootstrap.min.css"); ?>" rel="stylesheet">
     
     <link href="<?php echo base_url("assets/font-awesome/css/font-awesome.min.css"); ?>" rel="stylesheet">
     
@@ -23,6 +23,9 @@ $user->is_not_logged_in_redirect();
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url("assets/css/dashboard.css"); ?>" rel="stylesheet">
+    
+    <script src="<?php echo base_url("assets/js/jquery-1.11.0.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/ui/jquery-ui.min.js"); ?>"></script>
   </head>
 
   <body>

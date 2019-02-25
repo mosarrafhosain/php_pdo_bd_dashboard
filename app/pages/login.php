@@ -25,7 +25,7 @@ if (isset($_POST['LOGIN'])) {
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url("assets/bs/css/bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/bootstrap/css/bootstrap.min.css"); ?>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url("assets/css/login.css"); ?>" rel="stylesheet">

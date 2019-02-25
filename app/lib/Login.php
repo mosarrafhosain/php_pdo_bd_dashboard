@@ -13,14 +13,15 @@ class Login extends Config
   public function login($username, $password)
   {
     try {
+      $password = sha1($password);
       $msg = "";
       $query = $this->conn->prepare("SELECT * FROM USERS WHERE (USERNAME = :USERNAME OR EMAIL = :USERNAME) AND PASSWORD = :PASSWORD");
       $query->bindParam("USERNAME", $username, PDO::PARAM_STR);
-      $query->bindParam("PASSWORD", sha1($password), PDO::PARAM_STR);
+      $query->bindParam("PASSWORD", $password, PDO::PARAM_STR);
       $query->execute();
       if ($query->rowCount() > 0) {
         $result = $query->fetch(PDO::FETCH_OBJ);
-        $_SESSION['USER_ID'] = $result->ID;
+        $_SESSION['USER_ID'] = $result->USERS_ID;
         $_SESSION['IS_LOGGED_IN'] = TRUE;
         $_SESSION['USER_TOKEN'] = '';
 

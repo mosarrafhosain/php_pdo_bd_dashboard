@@ -4,9 +4,7 @@
 <!--<script src="<?php // echo base_url("assets/js/jquery-3.3.1.slim.min.js"); ?>" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
 <!--<script src="../../assets/js/vendor/popper.min.js"></script>-->
-<script src="<?php echo base_url("assets/js/jquery-1.11.0.js"); ?>"></script>
-<script src="<?php echo base_url("assets/ui/jquery-ui.min.js"); ?>"></script>
-<script src="<?php echo base_url("assets/bs/js/bootstrap.min.js"); ?>"></script>
+<script src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?>"></script>
 
 <!-- Icons -->
 <script src="<?php echo base_url("assets/js/feather.min.js"); ?>"></script>
