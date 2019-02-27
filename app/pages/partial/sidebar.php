@@ -83,6 +83,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url("index.php?page=todo"); ?>">
+          <span data-feather="file-text"></span>
+          Todo
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url("index.php?page=logout"); ?>">
           <span data-feather="log-out"></span>
           Logout

@@ -15,44 +15,50 @@
             //echo '<pre>';
             //print_r($_POST);
             //echo '</pre>';
-            $id = trim($_POST['ID']);
-            $name = trim($_POST['NAME']);
+            $users_id = trim($_POST['USERS_ID']);
+            $old_password = trim($_POST['OLD_PASSWORD']);
+            $new_password = trim($_POST['NEW_PASSWORD']);
+            $confirm_password = trim($_POST['CONFIRM_PASSWORD']);
+            $password = sha1($new_password);
             try {
-              $sql = "UPDATE USERS SET NAME = '$name' WHERE ID = $id";
+              $sql = "UPDATE USERS SET PASSWORD = :PASSWORD WHERE USERS_ID = :USERS_ID";
               $stmt = $db->conn->prepare($sql);
+              $stmt->bindParam("PASSWORD", $password, PDO::PARAM_STR);
+              $stmt->bindParam("USERS_ID", $users_id, PDO::PARAM_STR);
               $stmt->execute();
-              echo $stmt->rowCount() . " records UPDATED successfully";
+              $_SESSION['success'] = $stmt->rowCount() . " records UPDATED successfully";
             } catch (PDOException $e) {
-              echo $sql . "<br>" . $e->getMessage();
+              $_SESSION['error'] = $sql . "<br>" . $e->getMessage();
             }
           }
 
-          $query = $db->conn->prepare("SELECT * FROM USERS WHERE ID = :ID");
-          $query->bindParam("ID", $_SESSION['USER_ID'], PDO::PARAM_STR);
+          $query = $db->conn->prepare("SELECT * FROM USERS WHERE USERS_ID = :USERS_ID");
+          $query->bindParam("USERS_ID", $_SESSION['USER_ID'], PDO::PARAM_STR);
           $query->execute();
           $row = $query->fetch(PDO::FETCH_OBJ);
           //echo '<pre>';
           //print_r($row);
           //echo '</pre>';
           ?>
+          <?php require_once __DIR__ . '/partial/message.php'; ?>
           <form action="" method="post">
-            <input type="hidden" name="ID" value="<?php echo $row->ID; ?>">
+            <input type="hidden" name="USERS_ID" value="<?php echo $row->USERS_ID; ?>">
             <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <label for="OLD_PASSWORD" class="col-sm-2 col-form-label">Old Password</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="NAME" value="<?php echo $row->NAME; ?>" placeholder="Full Name">
+                <input type="password" name="OLD_PASSWORD" id="OLD_PASSWORD" class="form-control" placeholder="Enter Old Password">
               </div>
             </div>
             <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">Email</label>
+              <label for="NEW_PASSWORD" class="col-sm-2 col-form-label">New Password</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" value="<?php echo $row->EMAIL; ?>" placeholder="Email" readonly>
+                <input type="password" name="NEW_PASSWORD" id="NEW_PASSWORD" class="form-control" placeholder="Enter New Password">
               </div>
             </div>
             <div class="form-group row">
-              <label for="username" class="col-sm-2 col-form-label">Username</label>
+              <label for="CONFIRM_PASSWORD" class="col-sm-2 col-form-label">Confirm Password</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" value="<?php echo $row->USERNAME; ?>" placeholder="Username" readonly>
+                <input type="password" name="CONFIRM_PASSWORD" id="CONFIRM_PASSWORD" class="form-control" placeholder="Confirm New Password">
               </div>
             </div>
             <div class="form-group row">

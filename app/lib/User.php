@@ -29,6 +29,14 @@ class User extends Config
       redirect(base_url("index.php?page=login$redir"));
     }
   }
+  
+  public function get_loggedin_user_info()
+  {
+    $query = $this->conn->prepare("SELECT * FROM USERS WHERE USERS_ID = :USERS_ID");
+    $query->bindParam("USERS_ID", $_SESSION['USER_ID'], PDO::PARAM_STR);
+    $query->execute();
+    return $query->fetch(PDO::FETCH_OBJ);
+  }
 
 }
 
