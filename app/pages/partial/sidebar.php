@@ -8,6 +8,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url("index.php?page=searchbox"); ?>">
+          <span data-feather="file-text"></span>
+          Searchbox
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#">
           <span data-feather="file"></span>
           Orders
